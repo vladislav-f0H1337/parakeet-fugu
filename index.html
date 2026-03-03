@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sad.fugu | Личный сайт</title>
+    <style>
+        /* Базовые настройки и темная тема */
+        body {
+            background-color: #0f0f0f;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Профиль */
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #333;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #fff;
+        }
+
+        /* Ссылки (кнопки) */
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .link-btn {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .link-btn:hover {
+            background-color: #333;
+            border-color: #555;
+            transform: translateY(-2px);
+        }
+
+        /* Твич клипы */
+        .clips-section {
+            margin-bottom: 40px;
+        }
+        
+        .clips-section h2 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        /* Плейлист */
+        .playlist {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            margin-bottom: 40px;
+        }
+
+        .track {
+            margin-bottom: 15px;
+        }
+
+        .track p {
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        audio {
+            width: 100%;
+            height: 30px;
+            outline: none;
+        }
+
+        /* Цитаты в рамочках */
+        .quotes-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .quote-card {
+            background-color: #161616;
+            border: 1px solid #2a2a2a;
+            border-left: 4px solid #666; /* Акцентная линия слева */
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .quote-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .quote-text {
+            flex-grow: 1;
+        }
+
+        .quote-text p {
+            font-style: italic;
+            margin: 0 0 10px 0;
+            line-height: 1.5;
+        }
+
+        .quote-author {
+            font-size: 0.9em;
+            color: #888;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        /* Адаптивность для телефонов */
+        @media (max-width: 600px) {
+            .quote-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .quote-card { border-left: 1px solid #2a2a2a; border-top: 4px solid #666; }
+            .quote-author { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="profile">
+        <img src="fugu.jpg" alt="Аватарка Фуги" class="avatar">
+        <h1>sad.fugu</h1>
+        <p>Email: 0CTAN0V1MENYA@protonmail.com | Discord: sad.fugu</p>
+    </div>
+
+    <div class="links-grid">
+        <a href="https://t.me/AMD_LOVERS" target="_blank" class="link-btn">Telegram Канал</a>
+        <a href="https://steamcommunity.com/profiles/76561199749698332" target="_blank" class="link-btn">Steam</a>
+        <a href="https://www.tiktok.com/@not_amd_elite?_r=1&_t=ZS-94OCJqAoUoZ" target="_blank" class="link-btn">TikTok</a>
+        <a href="https://www.reddit.com/u/maze110vvv/s/4AUpGzTmqf" target="_blank" class="link-btn">Reddit</a>
+        <a href="https://youtube.com/@bezkonechny_nosok?si=xxWPL0HIJBi05v54" target="_blank" class="link-btn">YouTube</a>
+        <a href="https://github.com" target="_blank" class="link-btn">GitHub</a> </div>
+
+    <div class="clips-section">
+        <h2>Лучшие Twitch клипы</h2>
+        <div class="links-grid">
+            <a href="https://www.twitch.tv/stintik/clip/NiceAggressiveHerringTwitchRPG-jlFdvKaOZ4K2FJmM" target="_blank" class="link-btn">Клип #1 (stintik)</a>
+            <a href="https://www.twitch.tv/cherebuhh/clip/PlausibleSillyBottleDancingBaby-GbOsUaPV5K1fvkna" target="_blank" class="link-btn">Клип #2 (cherebuhh)</a>
+            <a href="https://www.twitch.tv/cherebuhh/clip/PleasantRelievedAnacondaDerp-o24KBwqbbJl3uY7k" target="_blank" class="link-btn">Клип #3 (cherebuhh)</a>
+        </div>
+    </div>
+
+    <div class="playlist">
+        <h2>Мой Плейлист</h2>
+        
+        <div class="track">
+            <p>mzlff, BOOKER - Ящики</p>
+            <audio controls>
+                <source src="yashiki.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио элемент.
+            </audio>
+        </div>
+
+        <div class="track">
+            <p>BOOKER - Транки</p>
+            <audio controls>
+                <source src="tranki.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио элемент.
+            </audio>
+        </div>
+    </div>
+
+    <div class="quotes-section">
+        
+        <div class="quote-card">
+            <img src="IMG_20260303_223304_232.jpg" alt="Обезьяна" class="quote-img">
+            <div class="quote-text">
+                <p>«Я родился долбоёбом, очень с этим грустил. Добрый доктор взял, мне выписал билетик на Сибирь. Мол, подумай, посиди. Я подумал, поседел. И так появился мой первый записанный CD»</p>
+                <div class="quote-author">— BOOKER (Обезьяна)</div>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <img src="IMG_20260303_223305_503.jpg" alt="Мой менталитет" class="quote-img">
+            <div class="quote-text">
+                <p>«Мой менталитет — нахуй всех, невиновных нет.<br>Мой менталитет — нахуй всех, невиновных нет.»</p>
+                <div class="quote-author">— BOOKER (Мой менталитет)</div>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <img src="IMG_20260303_223209_799.jpg" alt="Егор Летов" class="quote-img">
+            <div class="quote-text">
+                <p>«Человек - это труп, завёрнутый в тулуп, задроченный до слёз и выброшен на Мороз.<br>Во все стороны смотрящий не идёт ли разводящий.»</p>
+                <div class="quote-author">— Игорь Фёдорович Летов</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+              </html>
+              
