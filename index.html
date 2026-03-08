@@ -2,257 +2,223 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sad.fugu | Личный сайт</title>
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>sad.fugu | Info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Базовые настройки и темная тема */
-        body {
-            background-color: #0f0f0f;
-            color: #e0e0e0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --bg-color: #0f0f13;
+            --container-bg: #1a1a24;
+            --accent: #7289da; /* Discord blurple */
+            --accent-hover: #5b6eae;
+            --text-main: #e0e0e0;
+            --text-muted: #888896;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(circle at top, #2b2b3d 0%, #0f0f13 100%);
         }
 
         .container {
-            max-width: 800px;
+            background-color: var(--container-bg);
             width: 100%;
+            max-width: 500px;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid #2a2a35;
         }
 
-        /* Профиль */
-        .profile {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .avatar {
-            width: 150px;
-            height: 150px;
+        .profile-pic {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #333;
-            margin-bottom: 15px;
+            background-color: var(--accent);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: white;
+            box-shadow: 0 0 20px rgba(114, 137, 218, 0.4);
+            border: 3px solid #2a2a35;
         }
 
         h1 {
-            margin: 0;
-            font-size: 2em;
-            color: #fff;
+            font-size: 24px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
-        /* Ссылки (кнопки) */
-        .links-grid {
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .links-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 40px;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
         }
 
         .link-btn {
-            background-color: #1a1a1a;
-            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            background-color: #23232f;
+            color: var(--text-main);
             text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
+            border-radius: 12px;
+            font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+
+        .link-btn i {
+            position: absolute;
+            left: 20px;
+            font-size: 20px;
         }
 
         .link-btn:hover {
-            background-color: #333;
-            border-color: #555;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            background-color: #2a2a38;
+            border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(114, 137, 218, 0.2);
+            color: #fff;
         }
 
-        /* Твич клипы */
-        .clips-section {
-            margin-bottom: 40px;
-        }
-        
-        .clips-section h2 {
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
+        /* Цвета для конкретных кнопок при наведении */
+        .btn-tg:hover { border-color: #0088cc; box-shadow: 0 5px 15px rgba(0, 136, 204, 0.2); }
+        .btn-gh:hover { border-color: #fff; box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); }
+        .btn-steam:hover { border-color: #171a21; box-shadow: 0 5px 15px rgba(23, 26, 33, 0.5); }
+        .btn-tt:hover { border-color: #ff0050; box-shadow: 0 5px 15px rgba(255, 0, 80, 0.2); }
+        .btn-twitch:hover { border-color: #9146ff; box-shadow: 0 5px 15px rgba(145, 70, 255, 0.2); }
+        .btn-yt:hover { border-color: #ff0000; box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); }
+        .btn-donate:hover { border-color: #00e676; box-shadow: 0 5px 15px rgba(0, 230, 118, 0.2); }
 
-        /* Плейлист */
-        .playlist {
-            background-color: #1a1a1a;
-            padding: 20px;
+        .contacts {
+            background-color: #15151c;
+            padding: 15px;
             border-radius: 12px;
-            border: 1px solid #333;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            font-size: 14px;
         }
 
-        .track {
-            margin-bottom: 15px;
+        .contacts p {
+            margin: 8px 0;
+            color: var(--text-muted);
         }
 
-        .track p {
-            margin: 0 0 10px 0;
+        .contacts span {
+            color: var(--text-main);
             font-weight: bold;
+            user-select: all; /* Позволяет скопировать в один клик */
         }
 
-        audio {
-            width: 100%;
-            height: 30px;
-            outline: none;
+        .quote-box {
+            padding-top: 20px;
+            border-top: 1px solid #2a2a35;
         }
 
-        /* Цитаты в рамочках */
-        .quotes-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .quote-card {
-            background-color: #161616;
-            border: 1px solid #2a2a2a;
-            border-left: 4px solid #666; /* Акцентная линия слева */
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .quote-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 8px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .quote-text {
-            flex-grow: 1;
-        }
-
-        .quote-text p {
+        blockquote {
             font-style: italic;
-            margin: 0 0 10px 0;
-            line-height: 1.5;
+            color: #a0a0b0;
+            line-height: 1.6;
+            font-size: 13px;
         }
 
         .quote-author {
-            font-size: 0.9em;
-            color: #888;
+            display: block;
+            margin-top: 10px;
             font-weight: bold;
-            text-align: right;
-        }
-
-        /* Адаптивность для телефонов */
-        @media (max-width: 600px) {
-            .quote-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            .quote-card { border-left: 1px solid #2a2a2a; border-top: 4px solid #666; }
-            .quote-author { text-align: center; }
+            color: var(--text-muted);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-
-    <div class="profile">
-        <img src="b3a8974b89ed8af345cda3c9122bb2e6.jpg" alt="Аватарка Фуги" class="avatar">
+    <div class="container">
+        <div class="profile-pic">
+            <i class="fa-solid fa-user-ninja"></i>
+        </div>
+        
         <h1>sad.fugu</h1>
-        <p>Email: 0CTAN0V1MENYA@protonmail.com | Discord: sad.fugu</p>
-    </div>
+        <p class="subtitle">vladislav-f0H1337</p>
 
-    <div class="links-grid">
-        <a href="https://t.me/fugu_priton" target="_blank" class="link-btn">Тгк (Притон)</a>
-        <a href="https://steamcommunity.com/profiles/76561199749698332" target="_blank" class="link-btn">Стим</a>
-        <a href="https://www.tiktok.com/@not_amd_elite?_r=1&_t=ZS-94OCJqAoUoZ" target="_blank" class="link-btn">ТикТок</a>
-        <a href="https://www.reddit.com/u/maze110vvv/s/4AUpGzTmqf" target="_blank" class="link-btn">Reddit</a>
-        <a href="https://youtube.com/@bezkonechny_nosok?si=xxWPL0HIJBi05v54" target="_blank" class="link-btn">YT Shorts</a>
-        <a href="https://github.com" target="_blank" class="link-btn">GitHub</a> </div>
+        <div class="links-container">
+            <a href="https://t.me/fugu_priton" target="_blank" class="link-btn btn-tg">
+                <i class="fa-brands fa-telegram"></i> ТГК: fugu_priton
+            </a>
+            
+            <a href="https://www.youtube.com/@bezkonechny_nosok" target="_blank" class="link-btn btn-yt">
+                <i class="fa-brands fa-youtube"></i> Shorts (100% не спизженные мемы)
+            </a>
 
-    <div class="clips-section">
-        <h2>Лучшие Twitch клипы</h2>
-        <div class="links-grid">
-            <a href="https://www.twitch.tv/stintik/clip/NiceAggressiveHerringTwitchRPG-jlFdvKaOZ4K2FJmM" target="_blank" class="link-btn">Лучший клип #1 (stintik)</a>
-            <a href="https://www.twitch.tv/cherebuhh/clip/PlausibleSillyBottleDancingBaby-GbOsUaPV5K1fvkna" target="_blank" class="link-btn">Лучший Клип #2 (cherebuhh)</a>
-            <a href="https://www.twitch.tv/cherebuhh/clip/PleasantRelievedAnacondaDerp-o24KBwqbbJl3uY7k" target="_blank" class="link-btn">Лучший клип #3 (cherebuhh)</a>
+            <a href="https://www.tiktok.com/@not_amd_elite?_r=1&_t=ZS-94WGaCzYhwQ" target="_blank" class="link-btn btn-tt">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+
+            <a href="https://github.com/vladislav-f0H1337" target="_blank" class="link-btn btn-gh">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+
+            <a href="https://steamcommunity.com/profiles/76561199749698332/" target="_blank" class="link-btn btn-steam">
+                <i class="fa-brands fa-steam"></i> Steam
+            </a>
+
+            <a href="https://www.roblox.com/users/5104208771/profile" target="_blank" class="link-btn">
+                <i class="fa-solid fa-gamepad"></i> Roblox
+            </a>
+
+            <a href="https://www.twitch.tv/stintik/clip/AmorphousSmellyHerringMikeHogu-zoP-UnJIkbtcwmm9" target="_blank" class="link-btn btn-twitch">
+                <i class="fa-brands fa-twitch"></i> Лучший твич клип #1
+            </a>
+
+            <a href="https://www.twitch.tv/stintik/clip/AbstemiousDarkKoupreyDoggo-IwBex0nDdahQyQYr" target="_blank" class="link-btn btn-twitch">
+                <i class="fa-brands fa-twitch"></i> Лучший твич клип #2
+            </a>
+
+            <a href="http://t.me/send?start=IVdgZmrzUNw1" target="_blank" class="link-btn btn-donate">
+                <i class="fa-solid fa-wallet"></i> Закинуть донат
+            </a>
+        </div>
+
+        <div class="contacts">
+            <p>Discord: <span>sad.fugu</span></p>
+            <p>Email: <span>0CTAN0V1MENYA@protonmail.com</span></p>
+        </div>
+
+        <div class="quote-box">
+            <blockquote>
+                «Я родился долбоёбом, очень с этим грустил<br>
+                Добрый доктор взял, мне выписал билетик на Сибирь<br>
+                Мол, подумай, посиди. Я подумал, поседел<br>
+                И так появился мой первый записанный CD»<br>
+                <span class="quote-author">— Booker Обезьяна</span>
+            </blockquote>
         </div>
     </div>
-
-    <div class="playlist">
-        <h2>Мой Плейлист</h2>
-        
-        <div class="track">
-            <p>mzlff, BOOKER - Ящики</p>
-            <audio controls>
-                <source src="tmprp20qte3.mp3" type="audio/mpeg">
-                Ваш браузер не поддерживает аудио элемент.
-            </audio>
-        </div>
-
-        <div class="track">
-            <p>BOOKER - Транки</p>
-            <audio controls>
-                <source src="tmp2el2ixx2.mp3" type="audio/mpeg">
-                Ваш браузер не поддерживает аудио элемент.
-            </audio>
-        </div>
-    </div>
-
-    <div class="track">
-            <p>Я предпочту тебе - С.О.С</p>
-            <audio controls>
-                <source src="Свидетельство О Смерти Я Предпочту Teбe.mp3" type="audio/mpeg">
-                Ваш браузер не поддерживает аудио элемент.
-            </audio>
-        </div>
-</div>
-    
-
-    <div class="quotes-section">
-        
-        <div class="quote-card">
-            <img src="IMG_20260303_223304_232.jpg" alt="Обезьяна" class="quote-img">
-            <div class="quote-text">
-                <p>«Я родился долбоёбом, очень с этим грустил. Добрый доктор взял, мне выписал билетик на Сибирь. Мол, подумай, посиди. Я подумал, поседел. И так появился мой первый записанный CD»</p>
-                <div class="quote-author">— BOOKER (Обезьяна)</div>
-            </div>
-        </div>
-
-        <div class="quote-card">
-            <img src="IMG_20260303_223305_503.jpg" alt="Мой менталитет" class="quote-img">
-            <div class="quote-text">
-                <p>«Мой менталитет — нахуй всех, невиновных нет.<br>Мой менталитет — нахуй всех, невиновных нет.»</p>
-                <div class="quote-author">— BOOKER (Мой менталитет)</div>
-            </div>
-        </div>
-
-        <div class="quote-card">
-            <img src="IMG_20260303_223209_799.jpg" alt="Егор Летов" class="quote-img">
-            <div class="quote-text">
-                <p>«Человек - это труп, завёрнутый в тулуп, задроченный до слёз и выброшен на Мороз.<br>Во все стороны смотрящий не идёт ли разводящий.»</p>
-                <div class="quote-author">— Игорь Фёдорович Летов</div>
-            </div>
-        </div>
-        
-        <div class="quote-card">
-            <img src="IMG_20260303_223209_799.jpg" alt="Обезьяна" class="quote-img">
-            <div class="quote-text">
-                <p>«Если однажды вдруг меня не окажется вовсе в заповедной заветной тарелке
-Твоего праведного сновидения
-Знай - Неуловимые мстители настигли меня»</p>
-                <div class="quote-author">— Игорь Федорович Летов</div>
-            </div>
-        </div>
-    </div>
-
-</div>
 
 </body>
-              </html>
-              
+</html>
